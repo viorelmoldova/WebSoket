@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Hello WebSocket</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="/main.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1.5.1/dist/sockjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+    <script src="/chat.js"></script>
+</head>
+<body>
+<div id="main-content" class="container">
+    <div th:replace="~{fragments/nav-fragment :: nav}"></div>
+    <div class="row">
+        <div class="col-md-12 col-md-6">
+            <div style=" padding: 16px; color: green; font-weight: 600;" id="success"></div>
+            <div class="col-md-6">
+                <input type="text" id="ip" placeholder="http://192.168.1.13:8099/chat" value="http://192.168.1.13:8099/chat"/>
+                <input type="text" id="name" placeholder="Enter your name"/>
+                <button onclick="connect()" id="connectBtn">Connect</button>
+                <button onclick="disconnect()">Disconnect</button>
+            </div>
+            <div class="col-md-6">
+                <input type="text" id="message" placeholder="Enter your message"/>
+                <button onclick="sendMessage()">Send</button>
+            </div>
+            <div id="chatBox"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
